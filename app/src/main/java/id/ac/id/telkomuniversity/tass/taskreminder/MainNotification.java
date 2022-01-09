@@ -18,7 +18,7 @@ public class MainNotification extends BroadcastReceiver {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel notificationChannel = new NotificationChannel(MainActivity.NOTIFICATION_CHANNEL_ID,
-                    "Pengingat", importance);
+                    "Task Reminder", importance);
             assert notificationManager != null;
             notificationManager.createNotificationChannel(notificationChannel);
         }

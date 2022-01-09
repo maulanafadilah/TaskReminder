@@ -221,8 +221,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        dialogBuilder.setTitle("Buat tugas baru");
-        dialogBuilder.setPositiveButton("Tambah", new DialogInterface.OnClickListener() {
+        dialogBuilder.setTitle("New Task");
+        dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String title = judul.getText().toString();
                 String date = tanggal.getText().toString();
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
-                    toastMsg("Oops, Gak bisa kosong tugas nya.");
+                    toastMsg("The task can't be empty");
                 }
             }
         });
