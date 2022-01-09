@@ -208,21 +208,15 @@ public class MainActivity extends AppCompatActivity {
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 String time;
                                 @SuppressLint("DefaultLocale") String minTime = String.format("%02d", minute);
-                                if (hourOfDay >= 0 && hourOfDay < 12) {
-                                    time = hourOfDay + " : " + minTime + " AM";
-                                } else {
-                                    if (hourOfDay != 12) {
-                                        hourOfDay = hourOfDay - 12;
-                                    }
-                                    time = hourOfDay + " : " + minTime + " PM";
-                                }
+                                time = hourOfDay + ":" + minute;
+
                                 waktu.setText(time);
                                 cal.set(Calendar.HOUR, hourOfDay);
                                 cal.set(MINUTE, minute);
                                 cal.set(Calendar.SECOND, 0);
                                 Log.d(TAG, "onTimeSet: Time has been set successfully");
                             }
-                        }, cal.get(Calendar.HOUR), cal.get(MINUTE), false);
+                        }, cal.get(Calendar.HOUR), cal.get(MINUTE), true);
                 timePickerDialog.show();
             }
         });
