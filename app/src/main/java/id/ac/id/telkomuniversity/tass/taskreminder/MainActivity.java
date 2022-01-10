@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getLayoutInflater().getContext(), default_notification_channel_id);
-        builder.setContentTitle("Pengingat");
+        builder.setContentTitle("Reminder");
         builder.setContentText(content);
         builder.setContentIntent(pendingIntent);
         builder.setAutoCancel(true);
@@ -100,12 +100,12 @@ public class MainActivity extends AppCompatActivity {
         if (insertData) {
             try {
                 populateListView();
-                toastMsg("Tugas di tambahkan");
+                toastMsg("Task added");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else
-            toastMsg("Opps.. terjadi kesalahan saat menyimpan!");
+            toastMsg("Error occurred while saving");
     }
 
     //Mengambil seluruh data dari database ke listview
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         String dateString = dateSdf.format(date);
         tanggal.setText(dateString);
 
-        SimpleDateFormat timeSdf = new SimpleDateFormat("hh : mm a");
+        SimpleDateFormat timeSdf = new SimpleDateFormat("HH : mm");
         String timeString = timeSdf.format(date);
         waktu.setText(timeString);
 
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 String time;
                                 @SuppressLint("DefaultLocale") String minTime = String.format("%02d", minute);
-                                time = hourOfDay + ":" + minute;
+                                time = hourOfDay + " : " + minTime;
 
                                 waktu.setText(time);
                                 cal.set(Calendar.HOUR, hourOfDay);
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
-                    toastMsg("The task can't be empty");
+                    toastMsg("Task's title can't be empty");
                 }
             }
         });

@@ -79,10 +79,10 @@ public class ItemAdapter extends BaseAdapter {
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
         try {
             databaseHelper.deleteData(id);
-            toastMsg("Tugas di hapus");
+            toastMsg("Task deleted");
         } catch (Exception e) {
             e.printStackTrace();
-            toastMsg("Oppss.. ada kesalahan saat menghapus");
+            toastMsg("Error occured while deleting");
         }
     }
 
